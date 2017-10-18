@@ -396,8 +396,6 @@ static NSMutableDictionary *globalDesignDictionary;
 - (void)setupLayout
 {
   self.translatesAutoresizingMaskIntoConstraints = NO;
-
-  // Add RMessage to superview and prepare the ending y position constants
   [self layoutMessageForPresentation];
   [self setupLabelPreferredMaxLayoutWidth];
 
@@ -448,6 +446,10 @@ static NSMutableDictionary *globalDesignDictionary;
     activateConstraints:@[centerXConstraint, leadingConstraint, trailingConstraint, self.topToVCLayoutConstraint]
             inSuperview:self.superview];
   if (self.shouldBlurBackground) [self setupBlurBackground];
+  
+  // Add RMessage to superview and prepare the ending y position constants
+  [self layoutMessageForPresentation];
+  [self setupLabelPreferredMaxLayoutWidth];
 }
 
 - (void)setupBackgroundImageViewWithImage:(UIImage *)image
